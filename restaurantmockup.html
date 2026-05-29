@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Roasted Clove — Rustic Kitchen & Grill · Blackwood, NJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Josefin+Sans:wght@300;400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a0d08;--ember:#b83a1a;--gold:#c97c18;--pink:#d4607a;
+  --cream:#f5ead6;--parch:#ede0c4;--smoke:#2d1a12;
+  --fd:'DM Serif Display',Georgia,serif;
+  --fl:'Josefin Sans',sans-serif;
+  --fb:'Crimson Pro',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+.announce{background:var(--ember);color:var(--cream);text-align:center;padding:.55rem 1rem;font-family:var(--fl);font-size:.62rem;letter-spacing:.25em;text-transform:uppercase}
+
+nav{position:fixed;top:1.5rem;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:2.5rem;background:rgba(26,13,8,.9);backdrop-filter:blur(16px);padding:.85rem 2.2rem;border-radius:100px;border:1px solid rgba(245,234,214,.12)}
+.nav-brand{font-family:var(--fd);font-size:1.05rem;color:var(--cream);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--fl);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,234,214,.6);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{font-family:var(--fl);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.55rem 1.3rem;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta:hover{background:#e08d1e}
+
+.hero{position:relative;height:100vh;min-height:700px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 30%;transform:scale(1.04);animation:slowzoom 18s ease-out forwards}
+@keyframes slowzoom{from{transform:scale(1.04)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,13,8,.95) 0%,rgba(26,13,8,.5) 45%,rgba(26,13,8,.15) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 5rem 6rem;max-width:800px}
+.hero-eyebrow{font-family:var(--fl);font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;opacity:0;animation:fadeup .8s .3s forwards}
+.hero-title{font-family:var(--fd);font-size:clamp(3.5rem,8vw,7rem);line-height:1;color:var(--cream);margin-bottom:1.5rem;opacity:0;animation:fadeup .8s .5s forwards}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-family:var(--fb);font-size:1.15rem;font-weight:300;font-style:italic;color:rgba(245,234,214,.75);line-height:1.7;max-width:480px;margin-bottom:2.5rem;opacity:0;animation:fadeup .8s .7s forwards}
+.hero-actions{display:flex;gap:1rem;align-items:center;opacity:0;animation:fadeup .8s .9s forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.btn-ember{font-family:var(--fl);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;background:var(--ember);color:var(--cream);padding:1rem 2rem;text-decoration:none;transition:background .2s}
+.btn-ember:hover{background:#d04420}
+.btn-ghost-light{font-family:var(--fl);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,234,214,.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.btn-ghost-light:hover{color:var(--cream)}
+.btn-ghost-light::after{content:'→'}
+.hero-scroll{position:absolute;bottom:2.5rem;right:4rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;z-index:2}
+.hero-scroll span{font-family:var(--fl);font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,234,214,.4);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:50px;background:rgba(245,234,214,.2);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--gold);animation:scrolldown 1.8s ease-in-out infinite}
+@keyframes scrolldown{to{top:200%}}
+
+.story-strip{background:var(--smoke);display:grid;grid-template-columns:1fr 1fr;min-height:85vh}
+.story-image{position:relative;overflow:hidden}
+.story-image img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1);transition:transform 6s ease}
+.story-image:hover img{transform:scale(1.03)}
+.story-badge{position:absolute;bottom:2rem;right:-1px;background:var(--ember);color:var(--cream);padding:1.2rem 1.8rem;font-family:var(--fd);font-style:italic;font-size:.95rem;line-height:1.5;max-width:230px}
+.story-content{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
+.sec-label{font-family:var(--fl);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.story-title{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.8rem);color:var(--cream);line-height:1.1;margin-bottom:2rem}
+.story-title em{font-style:italic;color:var(--gold)}
+.story-body{font-size:1.1rem;font-weight:300;color:rgba(245,234,214,.7);line-height:1.9;margin-bottom:2rem;font-style:italic}
+.story-quote{border-left:2px solid var(--ember);padding-left:1.5rem;margin-bottom:2rem}
+.story-quote p{font-family:var(--fd);font-style:italic;font-size:1.2rem;color:var(--cream);line-height:1.6}
+.story-quote cite{font-family:var(--fl);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.6rem;display:block;font-style:normal}
+
+.marquee-wrap{background:var(--ember);overflow:hidden;padding:.9rem 0}
+.marquee-track{display:flex;width:max-content;animation:marquee 24s linear infinite}
+.marquee-item{font-family:var(--fl);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,234,214,.85);padding:0 2.5rem;white-space:nowrap}
+.marquee-sep{color:rgba(245,234,214,.4);font-size:.45rem;padding:0 .5rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.menu-sec{background:var(--cream);padding:8rem 5rem}
+.menu-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid rgba(26,13,8,.12)}
+.menu-title{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.5rem);color:var(--ink);line-height:1.05}
+.menu-title em{font-style:italic;color:var(--ember)}
+.menu-note{font-family:var(--fb);font-style:italic;font-size:.95rem;color:rgba(26,13,8,.5);max-width:260px;text-align:right;line-height:1.7}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid rgba(26,13,8,.1)}
+.menu-cat{padding:2.5rem;border-right:1px solid rgba(26,13,8,.1);border-bottom:1px solid rgba(26,13,8,.1);transition:background .3s}
+.menu-cat:hover{background:var(--parch)}
+.menu-cat:nth-child(2n){border-right:none}
+.menu-cat:nth-last-child(-n+2){border-bottom:none}
+.menu-cat-label{font-family:var(--fl);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:1rem}
+.menu-cat-name{font-family:var(--fd);font-size:1.8rem;color:var(--ink);margin-bottom:.8rem;line-height:1.1}
+.menu-items{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.menu-items li{font-size:.95rem;font-weight:300;color:rgba(26,13,8,.65);display:flex;align-items:center;gap:.5rem}
+.menu-items li::before{content:'·';color:var(--gold);font-size:1.2rem;line-height:1}
+
+.gallery-sec{background:var(--ink);padding:6rem 5rem}
+.gallery-hd{margin-bottom:3rem}
+.gallery-ttl{font-family:var(--fd);font-size:clamp(2rem,4vw,3.2rem);color:var(--cream);line-height:1.05}
+.gallery-ttl em{font-style:italic;color:var(--gold)}
+.gallery-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:10px;height:520px}
+.gal-item{overflow:hidden;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s ease;filter:saturate(1.05)}
+.gal-item:hover img{transform:scale(1.06);filter:saturate(1.2)}
+
+.visit-sec{background:var(--parch);display:grid;grid-template-columns:1fr 1fr}
+.visit-map{background:var(--smoke);min-height:480px;display:flex;align-items:center;justify-content:center;position:relative}
+.map-inner{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.map-pin{width:48px;height:48px;background:var(--ember);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center}
+.map-pin-inner{width:18px;height:18px;background:var(--cream);border-radius:50%;transform:rotate(45deg)}
+.map-addr{font-family:var(--fl);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,234,214,.5);text-align:center;margin-top:.5rem;line-height:1.8}
+.visit-info{padding:5rem;display:flex;flex-direction:column;justify-content:center}
+.visit-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3rem);color:var(--ink);margin-bottom:2.5rem;line-height:1.1}
+.visit-title em{font-style:italic;color:var(--ember)}
+.hours-grid{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.5rem;margin-bottom:2.5rem}
+.h-day{font-family:var(--fl);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(26,13,8,.5);align-self:center}
+.h-time{font-size:.95rem;color:var(--ink);align-self:center}
+.h-closed{font-family:var(--fl);font-size:.62rem;letter-spacing:.12em;color:var(--ember);text-transform:uppercase;align-self:center}
+.h-div{grid-column:1/-1;height:1px;background:rgba(26,13,8,.08);margin:.3rem 0}
+.visit-contact{display:flex;flex-direction:column;gap:.7rem;padding-top:2rem;border-top:1px solid rgba(26,13,8,.1);margin-bottom:2rem}
+.c-row{display:flex;align-items:center;gap:1rem;font-size:.95rem;color:var(--ink)}
+.c-icon{width:28px;height:28px;background:var(--ember);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon svg{width:13px;fill:var(--cream)}
+.tags{display:flex;gap:.6rem;flex-wrap:wrap}
+.tag{font-family:var(--fl);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(26,13,8,.2);color:rgba(26,13,8,.55);padding:.4rem .8rem;border-radius:100px}
+
+footer{background:var(--ink);padding:4rem 5rem 2.5rem}
+.ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(245,234,214,.08);margin-bottom:2rem}
+.ft-brand{font-family:var(--fd);font-size:1.8rem;color:var(--cream)}
+.ft-sub{font-family:var(--fl);font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.ft-tagline{font-size:.9rem;font-style:italic;color:rgba(245,234,214,.4);line-height:1.8;max-width:240px}
+.ft-col-title{font-family:var(--fl);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ft-links a{font-size:.9rem;color:rgba(245,234,214,.45);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:var(--cream)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center}
+.ft-copy{font-family:var(--fl);font-size:.6rem;letter-spacing:.1em;color:rgba(245,234,214,.25)}
+
+@media(max-width:768px){
+  nav{top:auto;bottom:1.2rem;left:50%;transform:translateX(-50%);padding:.7rem 1.5rem;gap:1.2rem;width:calc(100% - 2.4rem);justify-content:space-between}
+  .nav-links{display:none}
+  .hero-content{padding:0 1.8rem 8rem}
+  .hero-title{font-size:3rem}
+  .hero-scroll{display:none}
+  .story-strip{grid-template-columns:1fr}
+  .story-content{padding:3.5rem 1.8rem}
+  .story-image{min-height:320px}
+  .menu-sec{padding:4rem 1.8rem}
+  .menu-header{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .menu-note{text-align:left}
+  .menu-grid{grid-template-columns:1fr}
+  .menu-cat{border-right:none!important}
+  .gallery-sec{padding:4rem 1.8rem}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:260px 200px 200px;height:auto}
+  .visit-sec{grid-template-columns:1fr}
+  .visit-map{min-height:240px}
+  .visit-info{padding:3rem 1.8rem}
+  footer{padding:3rem 1.8rem 2rem}
+  .ft-top{grid-template-columns:1fr;gap:2rem}
+  .ft-bottom{flex-direction:column;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Now Open in Blackwood · BYOB Welcome · 123 Blackwood-Clementon Rd · (555) 555-0194</div>
+
+<nav>
+  <a href="#" class="nav-brand">The Roasted Clove</a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="#visit" class="nav-cta">Find Us</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('food2.jpg');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Now Serving South Jersey</div>
+    <h1 class="hero-title">Gather Around <em>Our Fire</em></h1>
+    <p class="hero-sub">Fresh ingredients, wood-fired finishes, and classic hospitality. Come hungry, leave feeling like family.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-ember">Explore Menu</a>
+      <a href="#visit" class="btn-ghost-light">Book a Table</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll to explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section id="story" class="story-strip">
+  <div class="story-image">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="Rustic Grill Cooking">
+    <div class="story-badge">Locally Sourced<br>Wood-Fired Daily</div>
+  </div>
+  <div class="story-content">
+    <span class="sec-label">Our Heritage</span>
+    <h2 class="story-title">Born From Passion, <em>Built For Community</em></h2>
+    <p class="story-body">We believe that great food doesn't need to be complicated. It just takes patience, honest ingredients, and a dedication to the craft of slow cooking.</p>
+    <div class="story-quote">
+      <p>"The aroma of seasoned oak and roasted garlic welcomes everyone like an old friend."</p>
+      <cite>— The Local Foodie Review</cite>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Handcrafted Comfort Food</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Seasonal Craft Beverages</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Wood-Fired Specialties</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Casual Dining Reimagined</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Handcrafted Comfort Food</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Seasonal Craft Beverages</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Wood-Fired Specialties</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">Casual Dining Reimagined</span><span class="marquee-sep">✦</span>
+  </div>
+</div>
+
+<section id="menu" class="menu-sec">
+  <div class="menu-header">
+    <h2 class="menu-title">On The <em>Menu</em></h2>
+    <p class="menu-note">Everything is prepared fresh in-house daily. Ask about our chef’s rotating weekend specials.</p>
+  </div>
+  
+  <div class="menu-grid">
+    <div class="menu-cat">
+      <span class="menu-cat-label">01 / Starters</span>
+      <h3 class="menu-cat-name">To Share</h3>
+      <ul class="menu-items">
+        <li>Charred Garlic Flatbread</li>
+        <li>Smoked Onion Dip &amp; House Chips</li>
+        <li>Blistered Shishito Peppers</li>
+        <li>Crispy Herb-Crusted Calamari</li>
+      </ul>
+    </div>
+    
+    <div class="menu-cat">
+      <span class="menu-cat-label">02 / From The Pit</span>
+      <h3 class="menu-cat-name">Mains</h3>
+      <ul class="menu-items">
+        <li>Slow-Smoked Beef Brisket</li>
+        <li>Oak-Fired Half Chicken</li>
+        <li>Glazed Rib Ribbon Basket</li>
+        <li>The Clove Stuffed Burger</li>
+      </ul>
+    </div>
+    
+    <div class="menu-cat">
+      <span class="menu-cat-label">03 / Complements</span>
+      <h3 class="menu-cat-name">Sides</h3>
+      <ul class="menu-items">
+        <li>Iron-Skillet Cornbread</li>
+        <li>Smoked Gouda Mac &amp; Cheese</li>
+        <li>Crisp Cabbage Cider Slaw</li>
+        <li>Garlic &amp; Herb Smashed Potatoes</li>
+      </ul>
+    </div>
+    
+    <div class="menu-cat">
+      <span class="menu-cat-label">04 / Sweets</span>
+      <h3 class="menu-cat-name">Desserts</h3>
+      <ul class="menu-items">
+        <li>Warm Berry Apple Cobbler</li>
+        <li>Double Chocolate Skillet Cookie</li>
+        <li>House Craft Root Beer Float</li>
+        <li>Artisanal Vanilla Bean Ice Cream</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec">
+  <div class="gallery-hd">
+    <h2 class="gallery-ttl">Kitchen <em>Vibes</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Kitchen Prep"></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=500&auto=format&fit=crop" alt="Dining Room"></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=500&auto=format&fit=crop" alt="Gourmet Dish"></div>
+  </div>
+</section>
+
+<section id="visit" class="visit-sec">
+  <div class="visit-map">
+    <div class="map-inner">
+      <div class="map-pin"><div class="map-pin-inner"></div></div>
+      <p class="map-addr">452 Blackwood-Clementon Rd<br>Blackwood, NJ 08012</p>
+    </div>
+  </div>
+  <div class="visit-info">
+    <h2 class="visit-title">Join Us At <em>The Clove</em></h2>
+    
+    <div class="hours-grid">
+      <span class="h-day">Mon - Tue</span><span class="h-closed">Closed</span>
+      <div class="h-div"></div>
+      <span class="h-day">Wed - Thu</span><span class="h-time">4:00 PM — 9:00 PM</span>
+      <div class="h-div"></div>
+      <span class="h-day">Fri - Sat</span><span class="h-time">12:00 PM — 10:00 PM</span>
+      <div class="h-div"></div>
+      <span class="h-day">Sunday</span><span class="h-time">12:00 PM — 8:00 PM</span>
+    </div>
+    
+    <div class="visit-contact">
+      <div class="c-row">
+        <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <span>hello@theroastedclove.com</span>
+      </div>
+      <div class="c-row">
+        <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+        <span>(555) 555-0194</span>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">BYOB</span><span class="tag">Dine In</span><span class="tag">Takeout</span>
+      <span class="tag">Vegetarian Options</span><span class="tag">Locally Owned</span><span class="tag">Fresh Ingredients</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-top">
+    <div>
+      <div class="ft-brand">The Roasted Clove</div>
+      <div class="ft-sub">Rustic Kitchen & Grill · Blackwood, NJ</div>
+      <p class="ft-tagline">Everyone is welcome at our table. Come hungry, leave feeling like family.</p>
+    </div>
+    <div>
+      <p class="ft-col-title">Menu</p>
+      <ul class="ft-links">
+        <li><a href="#">To Share</a></li>
+        <li><a href="#">Main Dishes</a></li>
+        <li><a href="#">Fresh Sides</a></li>
+        <li><a href="#">Sweets &amp; Drinks</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-col-title">Explore</p>
+      <ul class="ft-links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#visit">Location &amp; Hours</a></li>
+        <li><a href="#">Private Events</a></li>
+        <li><a href="#">Work With Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 The Roasted Clove. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
